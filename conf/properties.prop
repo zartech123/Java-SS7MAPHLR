@@ -1,0 +1,19 @@
+db.userName=gatot
+db.password=infokom123
+db.hostName=localhost
+db.port=3306
+db.database=mapati
+db.className=com.mysql.jdbc.Driver
+db.engine=1
+mm6url=http://127.0.0.1/test.php
+mm6requestXML=<?xml version='1.0' encoding='UTF-8'?><MM6><GetCellIDRequest><Version>2.0.1</Version><MSISDN>_MSISDN_</MSISDN><TxId>_TX_ID_</TxId></GetCellIDRequest></MM6>
+mm6response1TAG=Version,TxId,IMSI,MSISDN,IMEI,Location,CellId,Last_seen_equip_timestamp
+mm6response2TAG=Version,Error,TxId
+mm6response3TAG=TxId,Error
+mm6response4TAG=Error
+mm6timeout=300
+mapatiresponseXML=<?xml version='1.0' encoding='UTF-8'?><Result><ResultCode>_ResultCode_</ResultCode><ResultDesc>_ResultDesc_</ResultDesc><ResultData><LAC>_LAC_</LAC><CI>_CI_</CI><IMSI>_IMSI_</IMSI><IMEI>_IMEI_</IMEI><PROPINSI>_PROVINSI_</PROPINSI><KABUPATEN>_KABUPATEN_</KABUPATEN><KECAMATAN>_KECAMATAN_</KECAMATAN><KELURAHAN>_KELURAHAN_</KELURAHAN><LONGITUDE>_LONGITUDE_</LONGITUDE><LATITUDE>_LATITUDE_</LATITUDE></ResultData><map-gw-response msisdn='_MSISDN_'><location-info><cell-id>_CI_</cell-id><location-area-code>_LAC_</location-area-code><mobile-country-code>510</mobile-country-code><mobile-network-code>10</mobile-network-code><age-of-location>_AGE_</age-of-location></location-info></map-gw-response></Result>
+gisfilename=active_2015_06_23.txt
+mapatiGT=628118201463
+mapatiTimeout=30000
+mapatiSSN=147

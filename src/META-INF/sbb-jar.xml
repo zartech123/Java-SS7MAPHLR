@@ -1,0 +1,321 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE sbb-jar PUBLIC "-//Sun Microsystems, Inc.//DTD JAIN SLEE SBB 1.1//EN" "http://java.sun.com/dtd/slee-sbb-jar_1_1.dtd">
+
+<sbb-jar>
+
+	<sbb>
+        <description>HTTP SBB</description>
+	    <sbb-name>HTTPSbb</sbb-name>
+	    <sbb-vendor>OpenCloud</sbb-vendor>
+	    <sbb-version>1.1</sbb-version>
+
+		<library-ref>
+            <library-name>MAP API</library-name>
+            <library-vendor>OpenCloud</library-vendor>
+            <library-version>1.5.2</library-version>
+        </library-ref>
+
+        <sbb-classes>
+            <sbb-abstract-class>
+                <sbb-abstract-class-name>mapati.HTTPListener</sbb-abstract-class-name>
+            </sbb-abstract-class>
+            <sbb-local-interface>
+              <sbb-local-interface-name>
+                mapati.HTTPListenerInterface
+              </sbb-local-interface-name>
+            </sbb-local-interface>
+        </sbb-classes>
+	
+	   <event event-direction="Receive" initial-event="True">
+	      <event-name>GetRequest</event-name>
+	      <event-type-ref>
+	        <event-type-name>com.opencloud.slee.resources.http.HttpRequest.GET</event-type-name>
+	        <event-type-vendor>OpenCloud</event-type-vendor>
+	        <event-type-version>2.2</event-type-version>
+	      </event-type-ref>
+	      <initial-event-select variable="ActivityContext"/>
+	    </event>
+
+        <event event-direction="Receive">
+            <event-name>AtiResp</event-name>
+            <event-type-ref>
+                <event-type-name>com.opencloud.slee.resources.cgin.map.anyTimeInterrogationResult</event-type-name>
+                <event-type-vendor>OpenCloud</event-type-vendor>
+                <event-type-version>1.5.2</event-type-version>
+            </event-type-ref>
+        </event>
+
+		<!--event event-direction="Receive">
+            <event-name>AtsiResp</event-name>
+            <event-type-ref>
+                <event-type-name>com.opencloud.slee.resources.cgin.map.anyTimeSubscriptionInterrogationResult</event-type-name>
+                <event-type-vendor>OpenCloud</event-type-vendor>
+                <event-type-version>1.4</event-type-version>
+            </event-type-ref>
+        </event-->
+
+	    <event event-direction="Receive" initial-event="False">
+	      <event-name>OpenConf</event-name>
+	      <event-type-ref>
+	        <event-type-name>com.opencloud.slee.resources.cgin.DialogOpenAccept</event-type-name>
+	        <event-type-vendor>OpenCloud</event-type-vendor>
+	        <event-type-version>1.5.2</event-type-version>
+	      </event-type-ref>
+	    </event>
+
+        <event event-direction="Receive" initial-event="False">
+	      <event-name>OperationError</event-name>
+	      <event-type-ref>
+	        <event-type-name>com.opencloud.slee.resources.cgin.OperationError</event-type-name>
+	        <event-type-vendor>OpenCloud</event-type-vendor>
+	        <event-type-version>1.5.2</event-type-version>
+	      </event-type-ref>
+	    </event>
+
+	    <event event-direction="Receive" initial-event="False">
+	      <event-name>UserAbort</event-name>
+	      <event-type-ref>
+	        <event-type-name>com.opencloud.slee.resources.cgin.DialogUserAbort</event-type-name>
+	        <event-type-vendor>OpenCloud</event-type-vendor>
+	        <event-type-version>1.5.2</event-type-version>
+	      </event-type-ref>
+	    </event>
+
+	    <event event-direction="Receive" initial-event="False">
+	      <event-name>ProviderAbort</event-name>
+	      <event-type-ref>
+	        <event-type-name>com.opencloud.slee.resources.cgin.DialogProviderAbort</event-type-name>
+	        <event-type-vendor>OpenCloud</event-type-vendor>
+	        <event-type-version>1.5.2</event-type-version>
+	      </event-type-ref>
+	    </event>
+
+	    <event event-direction="Receive" initial-event="False">
+	      <event-name>OpenRefuse</event-name>
+	      <event-type-ref>
+	        <event-type-name>com.opencloud.slee.resources.cgin.DialogOpenRefuse</event-type-name>
+	        <event-type-vendor>OpenCloud</event-type-vendor>
+	        <event-type-version>1.5.2</event-type-version>
+	      </event-type-ref>
+	    </event>
+
+	    <event event-direction="Receive" initial-event="False">
+	      <event-name>Close</event-name>
+	      <event-type-ref>
+	        <event-type-name>com.opencloud.slee.resources.cgin.DialogClose</event-type-name>
+	        <event-type-vendor>OpenCloud</event-type-vendor>
+	        <event-type-version>1.5.2</event-type-version>
+	      </event-type-ref>
+	    </event>
+
+        <resource-adaptor-type-binding>
+            <resource-adaptor-type-ref>
+                <resource-adaptor-type-name>CGIN Call Control</resource-adaptor-type-name>
+                <resource-adaptor-type-vendor>OpenCloud</resource-adaptor-type-vendor>
+                <resource-adaptor-type-version>1.5.2</resource-adaptor-type-version>
+            </resource-adaptor-type-ref>
+            <activity-context-interface-factory-name>
+            	slee/resources/map/acifactory
+            </activity-context-interface-factory-name>
+			<resource-adaptor-entity-binding>
+				<resource-adaptor-object-name>
+				slee/resources/map/provider
+				</resource-adaptor-object-name>
+				<resource-adaptor-entity-link>
+				slee/resources/map
+				</resource-adaptor-entity-link>
+			</resource-adaptor-entity-binding>
+        </resource-adaptor-type-binding>
+
+
+		<resource-adaptor-type-binding>
+            <resource-adaptor-type-ref>
+                <resource-adaptor-type-name>HTTP</resource-adaptor-type-name>
+                <resource-adaptor-type-vendor>OpenCloud</resource-adaptor-type-vendor>
+                <resource-adaptor-type-version>2.2</resource-adaptor-type-version>
+            </resource-adaptor-type-ref>
+            <activity-context-interface-factory-name>
+            	slee/resources/http/2.2/acifactory
+            </activity-context-interface-factory-name>
+			<resource-adaptor-entity-binding>
+				<resource-adaptor-object-name>
+				slee/resources/http/2.2/provider
+				</resource-adaptor-object-name>
+				<resource-adaptor-entity-link>
+				slee/resources/http
+				</resource-adaptor-entity-link>
+			</resource-adaptor-entity-binding>
+        </resource-adaptor-type-binding>
+
+	</sbb>
+
+    <!--<sbb id="mapati">
+        <description>MAP ATI SBB</description>
+        <sbb-name>MAPATISbb</sbb-name>
+        <sbb-vendor>OpenCloud</sbb-vendor>
+        <sbb-version>1.1</sbb-version>
+
+		<library-ref>
+            <library-name>MAP API</library-name>
+            <library-vendor>OpenCloud</library-vendor>
+            <library-version>1.4</library-version>
+        </library-ref>
+
+		<sbb-ref>
+            <sbb-name>HTTPSbb</sbb-name>
+            <sbb-vendor>OpenCloud</sbb-vendor>
+            <sbb-version>1.1</sbb-version>
+            <sbb-alias>HTTPSbb</sbb-alias>
+        </sbb-ref>
+
+
+        <sbb-classes>
+            <sbb-abstract-class>
+                <sbb-abstract-class-name>
+                    mapati.HLRValidation
+                </sbb-abstract-class-name>
+                <cmp-field>
+                    <cmp-field-name>listener</cmp-field-name>
+                    <sbb-alias-ref>HTTPSbb</sbb-alias-ref>
+                </cmp-field>                
+			</sbb-abstract-class>
+            <sbb-local-interface>
+              <sbb-local-interface-name>
+                mapati.HLRValidationInterface
+              </sbb-local-interface-name>
+            </sbb-local-interface>
+        </sbb-classes>
+                
+        <event event-direction="Receive" initial-event="True">
+            <event-name>ServiceStartedEvent</event-name>
+            <event-type-ref>
+                <event-type-name>javax.slee.serviceactivity.ServiceStartedEvent</event-type-name>
+                <event-type-vendor>javax.slee</event-type-vendor>
+                <event-type-version>1.1</event-type-version>
+            </event-type-ref>
+            <initial-event-select variable="ActivityContext"/>
+        </event>
+
+        <event event-direction="Receive">
+            <event-name>AtiResp</event-name>
+            <event-type-ref>
+                <event-type-name>com.opencloud.slee.resources.cgin.map.anyTimeInterrogationResult</event-type-name>
+                <event-type-vendor>OpenCloud</event-type-vendor>
+                <event-type-version>1.4</event-type-version>
+            </event-type-ref>
+        </event>
+
+		<event event-direction="Receive">
+            <event-name>SRISMResp</event-name>
+            <event-type-ref>
+                <event-type-name>com.opencloud.slee.resources.cgin.map.sendRoutingInfoForSMResult</event-type-name>
+                <event-type-vendor>OpenCloud</event-type-vendor>
+                <event-type-version>1.4</event-type-version>
+            </event-type-ref>
+        </event>
+
+		<event event-direction="Receive">
+            <event-name>UnstructuredSSRequest</event-name>
+            <event-type-ref>
+                <event-type-name>com.opencloud.slee.resources.cgin.map.unstructuredSS_RequestRequest</event-type-name>
+                <event-type-vendor>OpenCloud</event-type-vendor>
+                <event-type-version>1.4</event-type-version>
+            </event-type-ref>
+        </event>
+
+		<event event-direction="Receive">
+            <event-name>UnstructuredSSResponse</event-name>
+            <event-type-ref>
+                <event-type-name>com.opencloud.slee.resources.cgin.map.unstructuredSS_RequestResult</event-type-name>
+                <event-type-vendor>OpenCloud</event-type-vendor>
+                <event-type-version>1.4</event-type-version>
+            </event-type-ref>
+        </event>
+
+		<event event-direction="Receive">
+            <event-name>MTForwardSM</event-name>
+            <event-type-ref>
+                <event-type-name>com.opencloud.slee.resources.cgin.map.mt_ForwardSMResult</event-type-name>
+                <event-type-vendor>OpenCloud</event-type-vendor>
+                <event-type-version>1.4</event-type-version>
+            </event-type-ref>
+        </event>
+
+	    <event event-direction="Receive" initial-event="False">
+	      <event-name>OpenConf</event-name>
+	      <event-type-ref>
+	        <event-type-name>com.opencloud.slee.resources.cgin.DialogOpenAccept</event-type-name>
+	        <event-type-vendor>OpenCloud</event-type-vendor>
+	        <event-type-version>1.4</event-type-version>
+	      </event-type-ref>
+	    </event>
+
+        <event event-direction="Receive" initial-event="False">
+	      <event-name>OperationError</event-name>
+	      <event-type-ref>
+	        <event-type-name>com.opencloud.slee.resources.cgin.OperationError</event-type-name>
+	        <event-type-vendor>OpenCloud</event-type-vendor>
+	        <event-type-version>1.4</event-type-version>
+	      </event-type-ref>
+	    </event>
+
+	    <event event-direction="Receive" initial-event="False">
+	      <event-name>UserAbort</event-name>
+	      <event-type-ref>
+	        <event-type-name>com.opencloud.slee.resources.cgin.DialogUserAbort</event-type-name>
+	        <event-type-vendor>OpenCloud</event-type-vendor>
+	        <event-type-version>1.4</event-type-version>
+	      </event-type-ref>
+	    </event>
+
+	    <event event-direction="Receive" initial-event="False">
+	      <event-name>ProviderAbort</event-name>
+	      <event-type-ref>
+	        <event-type-name>com.opencloud.slee.resources.cgin.DialogProviderAbort</event-type-name>
+	        <event-type-vendor>OpenCloud</event-type-vendor>
+	        <event-type-version>1.4</event-type-version>
+	      </event-type-ref>
+	    </event>
+
+	    <event event-direction="Receive" initial-event="False">
+	      <event-name>OpenRefuse</event-name>
+	      <event-type-ref>
+	        <event-type-name>com.opencloud.slee.resources.cgin.DialogOpenRefuse</event-type-name>
+	        <event-type-vendor>OpenCloud</event-type-vendor>
+	        <event-type-version>1.4</event-type-version>
+	      </event-type-ref>
+	    </event>
+
+	    <event event-direction="Receive" initial-event="False">
+	      <event-name>Close</event-name>
+	      <event-type-ref>
+	        <event-type-name>com.opencloud.slee.resources.cgin.DialogClose</event-type-name>
+	        <event-type-vendor>OpenCloud</event-type-vendor>
+	        <event-type-version>1.4</event-type-version>
+	      </event-type-ref>
+	    </event>
+
+        <resource-adaptor-type-binding>
+            <resource-adaptor-type-ref>
+                <resource-adaptor-type-name>CGIN Call Control</resource-adaptor-type-name>
+                <resource-adaptor-type-vendor>OpenCloud</resource-adaptor-type-vendor>
+                <resource-adaptor-type-version>1.4</resource-adaptor-type-version>
+            </resource-adaptor-type-ref>
+            <activity-context-interface-factory-name>
+            	slee/resources/map/acifactory
+            </activity-context-interface-factory-name>
+			<resource-adaptor-entity-binding>
+				<resource-adaptor-object-name>
+				slee/resources/map/provider
+				</resource-adaptor-object-name>
+				<resource-adaptor-entity-link>
+				slee/resources/map
+				</resource-adaptor-entity-link>
+			</resource-adaptor-entity-binding>
+        </resource-adaptor-type-binding>
+
+    </sbb>-->
+
+</sbb-jar>
+

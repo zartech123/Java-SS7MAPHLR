@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+
+<project name="http-example" default="deploy">
+
+    <property file="${user.home}/.build.properties"/>    <!-- Per-user properties -->
+    <property file="build.local.properties"/>
+    <property file="build.properties"/>
+    <import file="${client.home}/etc/common.xml"/>
+	<property name="resource.dir" value="resources" />
+
+	<path id="lib.path.id">
+		<fileset dir="lib" />
+	</path>
+	
+	
+    <target name="init">
+        <dirname file="${ant.file.http-example}" property="http-example.path"/>
+        <pathconvert targetos="unix" property="http.home">
+            <path location="${http-example.path}/.."/>
+        </pathconvert>
+        <property name="lib" value="${http-example.path}/lib"/>
+    </target>
+
+    <target name="clean" depends="init">
+        <delete dir="${target}"/>
+    </target>
+
+    <target name="deploy" depends="build-ping, deploy-ping" description="Deploy example app"/>
+
+    <target name="undeploy" depends="login, clean, undeploy-ping" description="Undeploy example app"/>
+
+    <target name="compile" depends="init">
+        <mkdir dir="${classes}/http-ping"/>
+        <javac optimize="${opt}" debug="${debug}" srcdir="${src}" destdir="${classes}/http-ping" includes="mapati/**/*.java">
+            <classpath>
+                <path refid="slee.classpath"/>
+                <pathelement location="${lib}/*.jar" />
+                <!--<pathelement location="${lib}/${ra.type.jar}" />-->
+                <fileset dir="${lib}">
+                	<include name="**/*.jar"/>
+                </fileset>	
+            </classpath>
+        </javac>
+    </target>
+
+    <target name="build-ping" depends="compile" description="Build HTTP ping service deployable unit">
+        <deployablejar destfile="${jars}/map-ati-service.jar"
+                       metainfbase="${src}/META-INF">
+            <sbbjar destfile="${jars}/map-ati-sbb.jar" classpath="${classes}/http-ping">
+                <fileset dir="${classes}/http-ping"/>
+            </sbbjar>
+        </deployablejar>
+    </target>
+
+    <target name="deploy-ping" depends="login, build-ping" description="Deploy HTTP Ping service">
+        <slee-management>
+            <install srcfile="${jars}\${ping.service.jar}" url="file:${jars}\${ping.service.jar}" />
+            <activateservice>
+                <component name="${ping.service.name}" vendor="${ping.service.vendor}" version="${ping.service.version}"/>
+            </activateservice>
+            <settracerlevel tracername="" level="${sbb.tracelevel}">
+                <sbbnotificationsource>
+                    <service name="${ping.service.name}" vendor="${ping.service.vendor}" version="${ping.service.version}"/>
+                    <sbb name="${ping.sbb.name}" vendor="${ping.sbb.vendor}" version="${ping.sbb.version}"/>
+                </sbbnotificationsource>
+            </settracerlevel>
+        </slee-management>
+    </target>
+
+    <target name="undeploy-ping" depends="login" description="Undeploy HTTP Ping service">
+        <slee-management>
+            <deactivateservice>
+                <component name="${ping.service.name}" vendor="${ping.service.vendor}" version="${ping.service.version}"/>
+            </deactivateservice>
+            <waittilserviceisinactive>
+                <component name="${ping.service.name}" vendor="${ping.service.vendor}" version="${ping.service.version}"/>
+            </waittilserviceisinactive>
+            <uninstall url="file:${jars}/${ping.service.jar}" />
+        </slee-management>
+    </target>
+
+</project>

@@ -2,24 +2,33 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
-	<classpathentry kind="lib" path="C:/eclipse/workspace/mapati/lib/log4j-1.2.15.jar"/>
-	<classpathentry kind="lib" path="C:/eclipse/workspace/mapati/lib/http-2.2.1.jar"/>
-	<classpathentry kind="lib" path="C:/eclipse/workspace/mapati/lib/common-lang3.jar"/>
-	<classpathentry kind="lib" path="C:/eclipse/workspace/mapati/lib/mysql-connector-java-5.1.18-bin.jar"/>
-	<classpathentry kind="lib" path="C:/eclipse/workspace/mapati/lib/slee-1.1.jar"/>
-	<classpathentry kind="lib" path="C:/eclipse/workspace/mapati/lib/http-events-2.2.0.10.jar"/>
-	<classpathentry kind="lib" path="C:/eclipse/workspace/mapati/lib/http-ratype-2.2.0.10.jar"/>
-	<classpathentry kind="lib" path="C:/eclipse/workspace/mapati/lib/commons-logging-1.1.1.jar"/>
-	<classpathentry kind="lib" path="C:/eclipse/workspace/mapati/lib/jdiameter-api-1.5.9.0-build537.jar"/>
-	<classpathentry kind="lib" path="C:/eclipse/workspace/mapati/lib/jdiameter-impl-1.5.9.0-build537.jar"/>
-	<classpathentry kind="lib" path="C:/eclipse/workspace/mapati/lib/mobicents-diameter-mux-jar-1.4.0.FINAL.jar"/>
-	<classpathentry kind="lib" path="C:/eclipse/workspace/mapati/lib/mysql-jdbc_5.1.5.jar"/>
-	<classpathentry kind="lib" path="C:/eclipse/workspace/mapati/lib/cgin-common.events-1.5.2.18.jar"/>
-	<classpathentry kind="lib" path="C:/eclipse/workspace/mapati/lib/cgin-common.ratype-1.5.2.18.jar"/>
-	<classpathentry kind="lib" path="C:/eclipse/workspace/mapati/lib/cgin-common-1.5.2.18.jar"/>
-	<classpathentry kind="lib" path="C:/eclipse/workspace/mapati/lib/in-datatypes-5.1.5.2.18.jar"/>
-	<classpathentry kind="lib" path="C:/eclipse/workspace/mapati/lib/map.api-1.5.2.18.jar"/>
-	<classpathentry kind="lib" path="C:/eclipse/workspace/mapati/lib/map.events-1.5.2.18.jar"/>
-	<classpathentry kind="lib" path="C:/eclipse/workspace/mapati/lib/oc-common.jar"/>
+	<classpathentry kind="lib" path="C:/Users/79198119/eclipse-workspace/mapati/lib/cgin-common.events-1.4.2.20.jar"/>
+	<classpathentry kind="lib" path="C:/Users/79198119/eclipse-workspace/mapati/lib/cgin-common.events-1.5.2.18.jar"/>
+	<classpathentry kind="lib" path="C:/Users/79198119/eclipse-workspace/mapati/lib/cgin-common.ratype-1.4.2.20.jar"/>
+	<classpathentry kind="lib" path="C:/Users/79198119/eclipse-workspace/mapati/lib/cgin-common.ratype-1.5.2.18.jar"/>
+	<classpathentry kind="lib" path="C:/Users/79198119/eclipse-workspace/mapati/lib/cgin-common-1.4.2.20.jar"/>
+	<classpathentry kind="lib" path="C:/Users/79198119/eclipse-workspace/mapati/lib/cgin-common-1.5.2.18.jar"/>
+	<classpathentry kind="lib" path="C:/Users/79198119/eclipse-workspace/mapati/lib/common-lang3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/79198119/eclipse-workspace/mapati/lib/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/79198119/eclipse-workspace/mapati/lib/http-2.2.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/79198119/eclipse-workspace/mapati/lib/http-events-2.2.0.10.jar"/>
+	<classpathentry kind="lib" path="C:/Users/79198119/eclipse-workspace/mapati/lib/http-ratype-2.2.0.10.jar"/>
+	<classpathentry kind="lib" path="C:/Users/79198119/eclipse-workspace/mapati/lib/in-datatypes-5.1.4.2.20.jar"/>
+	<classpathentry kind="lib" path="C:/Users/79198119/eclipse-workspace/mapati/lib/in-datatypes-5.1.5.2.18.jar"/>
+	<classpathentry kind="lib" path="C:/Users/79198119/eclipse-workspace/mapati/lib/jdiameter-api-1.5.9.0-build537.jar"/>
+	<classpathentry kind="lib" path="C:/Users/79198119/eclipse-workspace/mapati/lib/jdiameter-impl-1.5.9.0-build537.jar"/>
+	<classpathentry kind="lib" path="C:/Users/79198119/eclipse-workspace/mapati/lib/log4j-1.2.15.jar"/>
+	<classpathentry kind="lib" path="C:/Users/79198119/eclipse-workspace/mapati/lib/map.api-1.4.2.20.jar"/>
+	<classpathentry kind="lib" path="C:/Users/79198119/eclipse-workspace/mapati/lib/map.api-1.5.2.18.jar"/>
+	<classpathentry kind="lib" path="C:/Users/79198119/eclipse-workspace/mapati/lib/map.events-1.4.2.20.jar"/>
+	<classpathentry kind="lib" path="C:/Users/79198119/eclipse-workspace/mapati/lib/map.events-1.5.2.18.jar"/>
+	<classpathentry kind="lib" path="C:/Users/79198119/eclipse-workspace/mapati/lib/mobicents-diameter-mux-jar-1.4.0.FINAL.jar"/>
+	<classpathentry kind="lib" path="C:/Users/79198119/eclipse-workspace/mapati/lib/mysql-connector-java-5.1.18-bin.jar"/>
+	<classpathentry kind="lib" path="C:/Users/79198119/eclipse-workspace/mapati/lib/mysql-jdbc_5.1.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/79198119/eclipse-workspace/mapati/lib/oc-common.jar"/>
+	<classpathentry kind="lib" path="C:/Users/79198119/eclipse-workspace/mapati/lib/oc-common2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/79198119/eclipse-workspace/mapati/lib/org.apache.commons.dbcp.jar"/>
+	<classpathentry kind="lib" path="C:/Users/79198119/eclipse-workspace/mapati/lib/org.apache.commons.io.jar"/>
+	<classpathentry kind="lib" path="C:/Users/79198119/eclipse-workspace/mapati/lib/slee-1.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

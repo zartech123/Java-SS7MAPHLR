@@ -393,8 +393,8 @@ public abstract class HTTPListener extends BaseSbb {
 			pdu.setMap_open(openInfo);
 			
 
-			MAPDialog dialog = (MAPDialog) cginprovider.issueOpenRequest(MAPApplicationContexts.anyTimeInfoEnquiryContext_v3_ac,null,cceSccpAddr, destAddress, mapTimeout, pdu);
-//			MAPDialog dialog = (MAPDialog) cginprovider.issueOpenRequest(MAPApplicationContexts.anyTimeInfoEnquiryContext_v3_ac,cceSccpAddr);
+//			MAPDialog dialog = (MAPDialog) cginprovider.issueOpenRequest(MAPApplicationContexts.anyTimeInfoEnquiryContext_v3_ac,null,cceSccpAddr, destAddress, mapTimeout, pdu);
+			MAPDialog dialog = (MAPDialog) cginprovider.issueOpenRequest(MAPApplicationContexts.anyTimeInfoEnquiryContext_v3_ac,cceSccpAddr);
 			
 			
 			ActivityContextInterface dialogACI = mapaciFactory.getActivityContextInterface(dialog);
